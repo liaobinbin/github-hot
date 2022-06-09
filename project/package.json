@@ -4,14 +4,11 @@
   "description": "fanxi train react",
   "main": "index.ts",
   "scripts": {
-    "start": "webpack serve --config ./config/webpack.dev.js",
+    "start": "cross-env webpack serve --config ./config/webpack.dev.js",
     "build": "cross-env webpack ./config/webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "react",
-    "github"
-  ],
+  "keywords": ["react", "github"],
   "author": "Boiao Ch <doubiliao@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -20,7 +17,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
+    "@babel/preset-typescript": "^7.17.12",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
@@ -32,8 +31,12 @@
     "dotenv": "^16.0.1",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
+    "eslint-webpack-plugin": "^3.1.1",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.1",
     "prettier": "^2.6.2",
     "sass": "^1.52.3",
     "sass-loader": "^13.0.0",
@@ -45,5 +48,14 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.2",
     "webpack-merge": "^5.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/*.{js,jsx,ts,tsx}": ["node_modules/.bin/prettier --write", "node_modules/.bin/eslint --fix", "git add"],
+    "src/*.{css,scss,less,json,html,md,markdown}": ["node_modules/.bin/prettier --write", "git add"]
   }
 }
