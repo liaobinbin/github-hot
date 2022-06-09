@@ -6,6 +6,7 @@
   "scripts": {
     "start": "cross-env webpack serve --config ./config/webpack.dev.js",
     "build": "cross-env webpack ./config/webpack.dev.js",
+    "husky": "cd .. && husky install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["react", "github"],
