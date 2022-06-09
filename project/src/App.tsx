@@ -1,13 +1,22 @@
 import React from 'react';
+import { HashRouter as Router, useRoutes } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
+import { IconText } from '@components';
 
 import './main.scss';
 
-class App extends React.Component {
-  render() {
-    return <h1>323</h1>;
-  }
-}
+const GetRoutes = () => {
+  const routes = useRoutes([{ path: '/pap', element: <IconText>3213</IconText> }]);
+  return routes;
+};
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <GetRoutes />
+    </Router>
+  );
+};
 
 const element = document.getElementById('root');
 if (element) {
