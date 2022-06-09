@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * localStorage 持久化数据
  */
-export const useStateWithLocalStorage = <T>(key: string, initVal: T): [string, (value: any) => void] => {
+export const useStateWithLocalStorage = <T>(key: string, initVal: T): [string, (value: string) => void] => {
   if (typeof key !== 'string') {
     throw new Error('key must be a string');
   }

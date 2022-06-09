@@ -3,6 +3,7 @@ import { HashRouter as Router, useRoutes } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import { Popular } from './pages';
 
+import 'font-awesome/css/font-awesome.css';
 import './main.scss';
 
 const GetRoutes = () => {
