@@ -1,12 +1,12 @@
 import React from 'react';
 import { HashRouter as Router, useRoutes } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
-import { IconText } from '@components';
+import { Popular } from './pages';
 
 import './main.scss';
 
 const GetRoutes = () => {
-  const routes = useRoutes([{ path: '/pap', element: <IconText>3213</IconText> }]);
+  const routes = useRoutes([{ path: '/', element: <Popular /> }]);
   return routes;
 };
 
