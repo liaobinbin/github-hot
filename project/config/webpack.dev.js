@@ -8,10 +8,17 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-cheap-module-source-map',
   output: {
-    path: path.join(__dirname, './dist/js'),
-    filename: '[name]-bundle-[contenthash:8].js',
+    path: path.resolve('dist'),
+    filename: 'js/[name]-bundle-[contenthash:8].js',
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  module: {
+    rules: [
+      {
+        test: /\.(css|scss|sass)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
   devServer: {
     host: '0.0.0.0',
     port: '8000',

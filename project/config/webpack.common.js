@@ -29,10 +29,6 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
-        test: /\.(css|scss|sass)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-      {
         type: 'asset',
         test: /\.(png|svg|jpg|jpeg|gif|bmp)$/i,
       },
