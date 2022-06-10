@@ -1,0 +1,1 @@
+{"version":3,"file":"css/main.40f90d74.css","mappings":"AAAA,UAEE,SACA,UAGF,WACE,YACA","sources":["webpack://github-hot/./src/main.scss"],"sourcesContent":["html,\nbody {\n  margin: 0;\n  padding: 0;\n}\n\n.container {\n  margin: auto;\n  max-width: 1200px;\n}\n"],"names":[],"sourceRoot":""}
