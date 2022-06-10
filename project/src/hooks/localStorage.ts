@@ -11,7 +11,7 @@ export const useStateWithLocalStorage = <T>(key: string, initVal: T): [string, (
   let preStr;
   try {
     let localStr = localStorage.getItem(key);
-    if (localStr === undefined) {
+    if (!localStr) {
       localStr = null; // 避免解析时报错，SyntaxError
     }
     preStr = JSON.parse(localStr as string); // 反序列化
