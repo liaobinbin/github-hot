@@ -1,5 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 
+import './index.scss';
+
 export interface IconTextProps extends PropsWithChildren {
   icon?: string;
   color?: string;

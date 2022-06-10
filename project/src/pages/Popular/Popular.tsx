@@ -1,5 +1,8 @@
 import React from 'react';
-import { Tab, Card, Loading } from '@components';
+
+import { Row, Col } from 'react-flexbox-grid';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { Tab, Card, Loading, Header } from '@components';
 import { useStateWithLocalStorage } from '@hooks';
 import { getGithubInfo } from '@api';
 
@@ -14,19 +17,18 @@ type ListData = {
   stargazers_count: number;
 };
 
-const mountScrollEvent = (cb: () => void) => {
-  const fn = () => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
-    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-    if (scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight) {
-      cb();
-    }
-  };
-  document.removeEventListener('scroll', fn);
-  document.addEventListener('scroll', fn);
-};
-
+/* const mountScrollEvent = (cb: () => void) => {
+ *   const fn = () => {
+ *     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+ *     const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+ *     const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+ *     if (scrollHeight > clientHeight && scrollTop + clientHeight === scrollHeight) {
+ *       cb();
+ *     }
+ *   };
+ *   document.removeEventListener('scroll', fn);
+ *   document.addEventListener('scroll', fn);
+ * }; */
 export const Popular: React.FC = () => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const [type, setType] = useStateWithLocalStorage<string>('type', 'all');
@@ -62,38 +64,49 @@ export const Popular: React.FC = () => {
   React.useEffect(() => {
     getData(type);
   }, []);
-  React.useEffect(() => {
-    mountScrollEvent(() => {
-      getData(type, true);
-    });
-  }, [list]);
-
+  /* React.useEffect(() => {
+   *   mountScrollEvent(() => {
+   *     getData(type, true);
+   *   });
+   * }, [list]);
+   */
   const handleTabChange = (type: string) => {
     setType(type);
     getData(type);
   };
 
+  const loadMore = () => {
+    getData(type, true);
+  };
+
   return (
-    <div>
+    <>
+      <Header />
       <Tab list={typeList} select={type} onChange={handleTabChange} />
       {loading && <Loading />}
       <div className="container">
-        {list.length !== 0 &&
-          list.map((item, index) => {
-            return (
-              <Card
-                key={`card-list-${index}`}
-                rank={index + 1}
-                avatar={item.owner.avatar_url}
-                name={item.name}
-                user={item.owner.login}
-                star={item.stargazers_count}
-                fork={item.forks}
-                issue={item.open_issues}
-              />
-            );
-          })}
+        {list && list.length !== 0 && (
+          <InfiniteScroll dataLength={list.length} next={loadMore} hasMore={list.length < total}>
+            <Row>
+              {list.map((item, index) => {
+                return (
+                  <Col xs={6} md={4} lg={3} key={`card-list-${index}`}>
+                    <Card
+                      rank={index + 1}
+                      avatar={item.owner.avatar_url}
+                      name={item.name}
+                      user={item.owner.login}
+                      star={item.stargazers_count}
+                      fork={item.forks}
+                      issue={item.open_issues}
+                    />
+                  </Col>
+                );
+              })}
+            </Row>
+          </InfiniteScroll>
+        )}
       </div>
-    </div>
+    </>
   );
 };

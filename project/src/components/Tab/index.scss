@@ -1,0 +1,19 @@
+.tab {
+  font-weight: 600;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  padding: 0;
+  justify-content: center;
+
+  & > li {
+    cursor: pointer;
+    padding: 10px;
+    list-style: none;
+    text-transform: capitalize;
+
+    &.active {
+      color: red;
+    }
+  }
+}

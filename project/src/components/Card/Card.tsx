@@ -2,6 +2,8 @@ import React from 'react';
 import { IconText } from '@components';
 import { formatNumber } from '@util';
 
+import './index.scss';
+
 export interface CardProps {
   rank: number | string;
   avatar: string;

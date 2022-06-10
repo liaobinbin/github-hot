@@ -1,0 +1,66 @@
+.container {
+  & > h3 {
+    text-align: center;
+  }
+}
+
+.instruction {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &-card {
+    margin: 4px;
+    width: 192px;
+    height: 192px;
+    background: #f6f6f6;
+
+    & > h4 {
+      text-align: center;
+    }
+
+    & > div {
+      display: flex;
+      font-size: 72px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.center {
+  display: flex;
+  padding: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.playinput {
+  width: 300px;
+  height: 300px;
+  margin: 0 4px;
+
+  & input {
+  }
+  & button {
+    margin-left: 4px;
+  }
+
+  &-show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    & > img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+    }
+
+    & > span {
+      font-weight: 600;
+      color: #de325e;
+    }
+  }
+}

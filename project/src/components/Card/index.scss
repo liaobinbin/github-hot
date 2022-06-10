@@ -1,0 +1,28 @@
+.card {
+  height: 400px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f6f6;
+  padding: 40px;
+
+  &-rank {
+    font-size: 30px;
+    line-height: 30px;
+    margin: 0;
+  }
+
+  &-name {
+    color: red;
+    text-align: center;
+  }
+
+  & > img {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  & > h3 {
+    text-align: center;
+  }
+}

@@ -7,7 +7,15 @@ export const getGithubInfo = async (type: string, page: number) => {
     );
     return res.json();
   } catch (err) {
-    // Do something
+    alert(err);
+  }
+};
+
+export const getUser = async (userId: string) => {
+  try {
+    const res = await fetch(`https://api.github.com/users/${userId}`);
+    return res.json();
+  } catch (err) {
     alert(err);
   }
 };

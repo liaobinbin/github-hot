@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './index.scss';
+
 export interface TabProps {
   list: string[];
   onChange: (value: string) => void;
