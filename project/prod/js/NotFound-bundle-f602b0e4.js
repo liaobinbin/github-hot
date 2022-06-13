@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgithub_hot=self.webpackChunkgithub_hot||[]).push([[187],{287:(t,u,e)=>{e.r(u),e.d(u,{NotFound:()=>o,default:()=>h});var n=e(526),o=function(){return n.createElement("div",null,"Not Found")};const h=o}}]);
