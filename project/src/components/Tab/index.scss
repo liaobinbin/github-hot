@@ -12,8 +12,20 @@
     list-style: none;
     text-transform: capitalize;
 
+    & a {
+      text-decoration: none;
+
+      &:visited {
+        color: #333;
+      }
+    }
+
     &.active {
-      color: red;
+      color: red !important;
+
+      a {
+        color: red;
+      }
     }
   }
 }

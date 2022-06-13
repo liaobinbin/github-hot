@@ -1,7 +1,6 @@
 import React, { ChangeEventHandler, KeyboardEventHandler } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Header } from '@components';
 import './index.scss';
 
 interface InstructionCardProps {
@@ -83,7 +82,6 @@ export const Battle: React.FC = () => {
 
   return (
     <>
-      <Header />
       <div className="container">
         <h3>Instructions</h3>
         <div className="instruction">

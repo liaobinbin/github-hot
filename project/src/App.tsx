@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, useRoutes } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
+import { Header } from '@components';
 
 import 'font-awesome/css/font-awesome.css';
 import './main.scss';
@@ -51,6 +52,7 @@ const GetRoutes = () => {
 const App: React.FC = () => {
   return (
     <Router>
+      <Header />
       <GetRoutes />
     </Router>
   );

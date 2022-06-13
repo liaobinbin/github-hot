@@ -4,15 +4,16 @@ import './index.scss';
 
 export interface TabProps {
   list: string[];
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
   select?: string;
+  link?: (item: string) => React.ReactNode;
 }
 
-export const Tab: React.FC<TabProps> = ({ list, select, onChange }) => {
+export const Tab: React.FC<TabProps> = ({ list, select, onChange, link }) => {
   const [current, setCurrent] = React.useState<string>(select || 'all');
 
   const handleCurrentChange = (value: string) => {
-    onChange(value);
+    onChange && onChange(value);
     setCurrent(value);
   };
 
@@ -28,7 +29,7 @@ export const Tab: React.FC<TabProps> = ({ list, select, onChange }) => {
               className={current === item ? 'active' : ''}
               key={`tab-list-${index}`}
             >
-              {item}
+              {link ? link(item) : item}
             </li>
           );
         })}
