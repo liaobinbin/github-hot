@@ -26,7 +26,7 @@ export const Tab: React.FC<TabProps> = ({ list, select, onChange, link }) => {
               onClick={() => {
                 handleCurrentChange(item);
               }}
-              className={current === item ? 'active' : ''}
+              className={current === item && !link ? 'active' : ''}
               key={`tab-list-${index}`}
             >
               {link ? link(item) : item}

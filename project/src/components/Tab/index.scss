@@ -20,6 +20,10 @@
       }
     }
 
+    & .active {
+      color: red !important;
+    }
+
     &.active {
       color: red !important;
 

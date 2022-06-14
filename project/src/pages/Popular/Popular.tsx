@@ -33,7 +33,11 @@ export const Popular: React.FC = () => {
     <>
       <Tab
         link={(item) => {
-          return <Link to={`/?type=${item}`}>{item}</Link>;
+          return (
+            <Link to={`/?type=${item}`} className={item === type ? 'active' : ''}>
+              {item}
+            </Link>
+          );
         }}
         list={typeList}
         select={type}

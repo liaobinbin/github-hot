@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Loading, Header, IconText } from '@components';
+import { Loading, IconText } from '@components';
 import { getUser } from '@api';
 
 import './index.scss';
@@ -67,7 +67,6 @@ export const Result: React.FC = () => {
 
   return (
     <>
-      <Header />
       {loading && <Loading />}
       <div className="container">
         {p1Data && p2Data && (
