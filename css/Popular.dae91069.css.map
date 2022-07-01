@@ -1,0 +1,1 @@
+{"version":3,"file":"css/Popular.dae91069.css","mappings":"AAAA,QACE","sources":["webpack://github-hot/./src/pages/Popular/style.scss"],"sourcesContent":[".active {\n  color: red !important;\n}\n"],"names":[],"sourceRoot":""}

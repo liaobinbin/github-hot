@@ -1,0 +1,1 @@
+.result{display:flex;flex-wrap:wrap;justify-content:space-around;margin-top:20px}.result-card{background:#f6f6f6;margin:4px;padding:30px}.result-card h4,.result-card>h3{text-align:center}.result-card>img{display:block;margin:0 auto;width:192px}.result-card-detail{color:#333;display:flex;flex-direction:column;font-size:14px}
