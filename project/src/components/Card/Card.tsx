@@ -2,7 +2,7 @@ import React from 'react';
 import { IconText } from '@components';
 import { formatNumber } from '@util';
 
-import './index.scss';
+import style from './style.module.scss';
 
 export interface CardProps {
   rank: number | string;
@@ -16,10 +16,10 @@ export interface CardProps {
 
 export const Card: React.FC<CardProps> = ({ rank, avatar, name, user, star, fork, issue }) => {
   return (
-    <div className="card">
-      <h3 className="card-rank">#{rank}</h3>
+    <div className={style.card}>
+      <h3 className={style['card-rank']}>#{rank}</h3>
       <img alt="avatar" src={avatar} />
-      <h4 className="card-name">{name}</h4>
+      <h4 className={style['card-name']}>{name}</h4>
       <IconText icon="user" color="orange">
         {formatNumber(user)}
       </IconText>

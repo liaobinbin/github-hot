@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './index.scss';
+import style from './style.module.scss';
 
 export interface TabProps {
   list: string[];
@@ -18,7 +18,7 @@ export const Tab: React.FC<TabProps> = ({ list, select, onChange, link }) => {
   };
 
   return (
-    <ul className="tab">
+    <ul className={style.tab}>
       {list &&
         list.map((item, index) => {
           return (
@@ -26,7 +26,7 @@ export const Tab: React.FC<TabProps> = ({ list, select, onChange, link }) => {
               onClick={() => {
                 handleCurrentChange(item);
               }}
-              className={current === item && !link ? 'active' : ''}
+              className={current === item && !link ? style.active : ''}
               key={`tab-list-${index}`}
             >
               {link ? link(item) : item}

@@ -32,7 +32,10 @@ module.exports = merge(common, {
           {
             loader: 'css-loader',
             options: {
-              modules: true, // 此处为开启模块化开关
+              modules: {
+                auto: true,
+                localIdentName: '[local]--[hash:base64:5]',
+              },
             },
           },
           'sass-loader',

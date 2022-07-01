@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler, KeyboardEventHandler } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './index.scss';
+import style from './style.module.scss';
 
 interface InstructionCardProps {
   text: string;
@@ -11,7 +11,7 @@ interface InstructionCardProps {
 
 const InstructionCard: React.FC<InstructionCardProps> = ({ text, icon, color }) => {
   return (
-    <div className="instruction-card">
+    <div className={style['instruction-card']}>
       <h4>{text}</h4>
       <div>
         <i className={icon ? `fa fa-${icon}` : ''} style={{ color: color ? color : '#000' }}></i>
@@ -51,7 +51,7 @@ const PlayerInput: React.FC<PlayerInputProps> = ({ title, onChange }) => {
   };
 
   return (
-    <div className="playinput">
+    <div className={style.playinput}>
       <h4>{title}</h4>
       {!show ? (
         <div>
@@ -61,7 +61,7 @@ const PlayerInput: React.FC<PlayerInputProps> = ({ title, onChange }) => {
           </button>
         </div>
       ) : (
-        <div className="playinput-show">
+        <div className={style['playinput-show']}>
           <img src={`https://github.com/${value}.png?size=200`} alt="avatar" />
           <span>{value}</span>
           <button onClick={handleCancel}>Cancel</button>
@@ -82,20 +82,20 @@ export const Battle: React.FC = () => {
 
   return (
     <>
-      <div className="container">
+      <div className={style.container}>
         <h3>Instructions</h3>
-        <div className="instruction">
+        <div className={style.instruction}>
           <InstructionCard text="Enter two Github" icon="users" color="red" />
           <InstructionCard text="Battle" icon="exchange" color="green" />
           <InstructionCard text="See the winner" icon="trophy" color="orange" />
         </div>
-        <div className="center">
+        <div className={style.center}>
           <PlayerInput title="Player One" onChange={setPlayOne} />
           <PlayerInput title="Player Two" onChange={setPlayTwo} />
         </div>
 
         {playOne && playTwo && (
-          <div className="center">
+          <div className={style.center}>
             <button onClick={goBattle}>Battle</button>
           </div>
         )}

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './index.scss';
+import style from './style.module.scss';
 
 export const Header: React.FC = () => {
   return (
-    <header className="header">
+    <header className={style.header}>
       <nav>
         <Link to="/">Popular</Link>
         <Link to="/battle">Battle</Link>

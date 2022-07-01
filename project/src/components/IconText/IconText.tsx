@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 
-import './index.scss';
+import style from './style.module.scss';
 
 export interface IconTextProps extends PropsWithChildren {
   icon?: string;
@@ -9,7 +9,7 @@ export interface IconTextProps extends PropsWithChildren {
 
 export const IconText: React.FC<IconTextProps> = ({ icon, color, children }) => {
   return (
-    <span className="icon-text">
+    <span className={style['icon-text']}>
       <i className={`fa ${icon ? 'fa-' + icon : ''}`} style={{ color: color || '#000' }} />
       {children}
     </span>

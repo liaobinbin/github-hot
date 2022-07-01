@@ -13,11 +13,8 @@
     text-transform: capitalize;
 
     & a {
+      color: #333;
       text-decoration: none;
-
-      &:visited {
-        color: #333;
-      }
     }
 
     & .active {
