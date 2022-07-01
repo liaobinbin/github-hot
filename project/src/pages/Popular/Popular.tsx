@@ -1,11 +1,12 @@
 import React from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import { Card, Loading, Tab } from '@components';
-import { Col, Row } from 'react-flexbox-grid';
 import { LanguageType } from '@enum';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import { usePopular } from '@hooks';
+import { Col, Row } from 'react-flexbox-grid';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import './style.scss';
 
 // from enum get TypeList
 const typeList = Object.keys(LanguageType).map((name) => {
@@ -17,8 +18,15 @@ export const Popular: React.FC = () => {
   const type = searchParams.get('type') || 'all';
   const { list, isLoading, isError, loadMore, reload, total } = usePopular(type);
 
-  const errorLoader = () => <button onClick={reload}>重新加载</button>;
-  console.log(isError);
+  const errorLoader = () => {
+    return (
+      <Row center="xs">
+        <Col>
+          <button onClick={reload}>重新加载</button>
+        </Col>
+      </Row>
+    );
+  };
   const loader = () => {
     if (isError) {
       return errorLoader();

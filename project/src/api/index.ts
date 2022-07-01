@@ -22,7 +22,14 @@ export const getGithubInfo = (type: string) => {
     `https://api.github.com/search/repositories?q=stars:%3E1${
       type ? '+language:' + type : ''
     }&sort=starts&order=desc&type=Repositories&page=${index + 1}`;
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const fetcher = (url: string) =>
+    fetch(url).then((res) => {
+      if (res.status == 200) {
+        return res.json();
+      } else {
+        throw new Error('res error');
+      }
+    });
 
   const { data, mutate, ...others } = useSWRInfinite<GithubInfo>(getKey, fetcher, {
     shouldRetryOnError: false,
